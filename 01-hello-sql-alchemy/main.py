@@ -10,17 +10,19 @@ connection = engine.connect()
 # connection.execute("CREATE TABLE IF NOT EXISTS ")
 
 # execute a create command
-# connection.execute(text("CREATE TABLE IF NOT EXISTS employees(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, position TEXT NOT NULL, salary INTEGER NOT NULL)"))
-# connection.execute(text("CREATE TABLE IF NOT EXISTS students(name varchar(30), age integer)"))
+connection.execute(text("CREATE TABLE IF NOT EXISTS students(name varchar(30), age integer)"))
 
 
-# presist changes in db
 
 # working with Session 
 from sqlalchemy.orm import Session
 
 session = Session(engine)
+
+# EXECUTING INSERT COMMAND
 session.execute(text("INSERT INTO  students(name, age) VALUES('Khizar', 22)"))
+
+# presist changes in db
 session.commit()
 
 
